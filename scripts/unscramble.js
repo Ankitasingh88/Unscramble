@@ -1,36 +1,31 @@
 
-let btn = document.getElementById("btn");
+const button = document.querySelector(".button");
 
-// Apply the addEventListener method
-btn.addEventListener("click", myFunc)
+button.onclick = () => {
 
-function myFunc() {
-    
-    //welcome message
-     alert("~~~WELCOME TO UNSCRAMBLE~~~\n" + "Let's Unscramble some scrambled software programming related words!\n" + "The game provides you with a scrambled word and you get 3 attempts to unscramble it !!");
-    
-     // Start the game
+    // Start the game
      startGame();
-    }
-
-// Constants and word bank
-//const startGame = () => {
-const words = ["JAVA", "SCRIPT", "PYTHON", "JAVASCRIPT", "CHANGE", "MAKER", "GAMES", "DATA", "PROGRAMER", "SOFTWARE","KOTLIN","CODING","LANGUAGE"];
-let playAgain = true;
-let continuePlaying = false;
+};
 
 // Function to start the game
 const startGame = () => {
+    
+    // Constants and word bank
+    const words = ["JAVA", "SCRIPT", "PYTHON", "JAVASCRIPT", "CHANGE", "DATATYPE", "GAMES", "DATA", "PROGRAMER", "SOFTWARE","KOTLIN","CODING","LANGUAGE","FRONTENED","APPLICATION","DATABASE"];
+    let playAgain = true;
+    let continuePlaying = false;
+
     while (playAgain) {
 
-       if (!continuePlaying) {
-       const playStartResponse = confirm("Would you like to start playing ?");
-       playAgain = playStartResponse;
+        if (!continuePlaying) {
+            const playStartResponse = confirm("Would you like to start playing ?");
+            playAgain = playStartResponse;
        
-        // Check if the user wants to continue playing
-        if (!playAgain) {
-            break;
-        }
+            // Check if the user wants to continue playing
+            if (!playAgain) {
+                alert("Game cancelled");
+                return; // Exit the game loop
+            }
         }
 
         // Choose a random word from the word bank
@@ -50,7 +45,7 @@ const startGame = () => {
             
             // Check if user pressed Cancel
             if (userGuess === null) {
-                alert("Game cancelled.");
+                alert("Game cancelled");
                 return; // Exit the game loop
             }
 
@@ -67,7 +62,7 @@ const startGame = () => {
             } else {
                 attempts--;
                 if (attempts > 0) {
-                  alert("Incorrect guess. Try again.");
+                  alert("Ohh No, Incorrect guess!! please Try again.");
                 }
                 
             }
